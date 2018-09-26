@@ -6,7 +6,9 @@ A running instance of the API can be found at: http://35.203.114.68:3010/graphiq
 
 <img src='/screenshots/landingpagelabelled.png'>
 
-GraphiQL is an interactive in-browser IDE, which means you, the user, can perform operations on the database directly within the browser. This API supports full CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) operations. 
+GraphiQL is an interactive in-browser IDE, which means you, the user, can perform operations on the database directly within the browser. You can interact with the API by typing your desired query or mutation into the text area on the left side of the page, pressing the execute button, and seeing the results right away in the right side of the page. 
+
+This API supports full CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) operations. 
 
 ### Query
 In GraphQL, in order to read or fetch data from the database, we need to *query* the GraphQL server. A query is essentially asking for specific fields on an object. For example, in the following instance:
@@ -26,7 +28,7 @@ Just as queries are used to read data from the database, *mutations* are used to
 
 <img src='/screenshots/mutationshopsimple.png'>
 
-The `mutation` keyword specifies that we wish to modify data. The `createShop` field specifies the name of the mutation we are calling. A list of the available mutations can be found in Docs > Mutation. The `createShop` mutation takes a single parameter, `name`, which takes a String to be the name of the created shop. The `createShop` mutation returns a Shop object, and the `_id` and `name` fields of the Shop.
+The `mutation` keyword specifies that we wish to modify data. The `createShop` field specifies the name of the mutation we are calling. A list of the available mutations can be found in Docs > Mutation. The `createShop` mutation takes a single parameter, `name`, which takes a String to be the name of the created shop. The `createShop` mutation returns a Shop object, and the `_id` and `name` specify that we want to see the id and name of the created Shop.
 
 ### Documentation
 All the available queries and mutations, their expected parameters and return objects, and all the custom Objects (Shop, Product, Order, LineItem) of the data can be found in the documentation.
