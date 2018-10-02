@@ -23,12 +23,26 @@ Another example of a more complex query can be found below:
 
 In this instance, we are calling the same query, `shops`, but we are asking for more fields of the returned Shop objects (`name`, `products`, `orders`). Notice that `products` and `orders` are both nested while `name` is not. This is because the `name` field is of type String, while the `products` and `orders` fields are both arrays of Objects. Any time a field is of type Object, or an array of Objects, you must specify a subselection of the fields of the Object you wish to see returned. In this instance, we are asking for the `name` and `price` of each Product of the Shop, as well as the `lineitems` (which itself is an Object, and therefore also is nested) and `total` of each Order of the Shop.
 
+The above examples requested an array of Shop objects to be returned. In order to query or to mutate (see section below) individual objects, we need to provide the id of the object we wish to query/mutate as a parameter. For instance:
+
+<img src='/screenshots/querysingleproduct.png'>
+
+In the example above, we provide the id of the Product we wish to query as the parameter. Note that if you don't know the id of the object you wish to query or mutate, you can always use the query multiple objects query to get an array of the ids of all the objects, as in the first two example with Shop arrays, in order to obtain the id you need.
+
+
 ### Mutation
 Just as queries are used to read data from the database, *mutations* are used to modify (create, update, delete) server-side data. For example, in the following instance:
 
 <img src='/screenshots/mutationshopsimple.png'>
 
 The `mutation` keyword specifies that we wish to modify data. The `createShop` field specifies the name of the mutation we are calling. A list of the available mutations can be found in Docs > Mutation. The `createShop` mutation takes a single parameter, `name`, which takes a String to be the name of the created shop. The `createShop` mutation returns a Shop object, and the `_id` and `name` specify that we want to see the id and name of the created Shop.
+
+An example of updating a Product is found below:
+
+<img src='/screenshots/updateproduct.png'>
+
+As with the case of reading, updating, and deleting any individual object, this is a case where we have to provide the `_id` of the object as a parameter. As a reminder, if ever you don't know the id of the object you wish to query/mutate, you can always query an array of the objects and request the object id to be returned (this query does not require any parameters) in order to obtain the id you need. Examples of this can be found in the first two examples in this README. Also note that in this instance, the `name` of the object is also provided, as the `updateProductName` mutation requires the new name of the Product to be a parameter.
+
 
 ### Documentation
 All the available queries and mutations, their expected parameters and return objects, and all the custom Objects (Shop, Product, Order, LineItem) of the data can be found in the documentation.
